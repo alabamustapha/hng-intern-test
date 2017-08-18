@@ -1,7 +1,15 @@
 <?php
-require_once 'database.php';
+require_once 'functions.php';
 
+/**
+ * reading from post table
+ */
 
-echo connect_db();
+$all_posts = posts();
+
+$post = posts(2);
+
+$posts = posts([1,2,3,4,5]);
+
 
 

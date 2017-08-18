@@ -2,12 +2,28 @@
 
 require_once 'database.php';
 
-function posts($ids = null, $link = connect()){
+function posts($ids = []){
+	$link = connect_db();
+
+	$query = "SELECT * FROM `posts`";
+
 	
-	$query = "SELECT * ALL FROM `posts`";
+	if($ids){
+		if(is_array($ids)){
+			$ids = join("','",$ids);   
+			$query .= " WHERE `id` in ('$ids')";
+		}else{
+			$query .= " WHERE `id` = '{$ids}'";
+		}
+		
+		
+	}
+	
 
-	$query .= is_null($ids) ? " WHERE id in {$ids}" : '';
+	$query .= " ORDER BY `created_at`";
 
-	$query .= " ORDER BY `created_at` DSC";
+	$results = mysqli_query($link, $query);
+
+	return $results;
 
 }
