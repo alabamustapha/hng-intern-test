@@ -1,2 +1,2 @@
-# hng-intern-test
-Test Repoo for HNG-Interns
+# HNG-intern-test
+Test repo for HNG-Interns
