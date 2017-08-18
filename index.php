@@ -1,3 +1,7 @@
 <?php
+require_once 'database.php';
 
-echo "Welcome";
+
+echo connect_db();
+
+
